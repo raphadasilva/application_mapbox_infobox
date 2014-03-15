@@ -14,13 +14,7 @@
   h4 {  font-size:1em; margin-top:5px;}
   h3 {  font-size:1em;margin-top:5px;}
   #map { position:absolute; top:0; bottom:0; width:500px; height:560px; }
-</style>
-
-</head>
-<body>
-
-<style>
-  #info {
+    #info {
     background:rgba(255,255,255,1);
     position:absolute;
     width:160px;
@@ -31,8 +25,11 @@
     padding:10px;
     border-radius:2px;
     }
-
 </style>
+
+</head>
+<body>
+
 
 <div id='map'></div>
 // on initialiste l'infobox avec un texte incitatif
@@ -99,7 +96,7 @@ map.featureLayer.on('click',function(e) {
     var feature = e.layer.feature;
     
 //met dans une variable un titre, un texte et une iframe dérivant directement des propriétés du geoJson
-    var info = '<h3>' + feature.properties.COMMUNE + '</h3><p>' + feature.properties.texte +'</p><iframe src="/charts_cus_2008/' + feature.properties.COMMUNE + '.html" height="290" width="180" frameborder="0" scrolling="no"></iframe>';
+    var info = '<h3>' + feature.properties.COMMUNE + '</h3><p>' + feature.properties.texte +'</p><iframe src="charts_cus_2008/' + feature.properties.COMMUNE + '.html" height="290" width="180" frameborder="0" scrolling="no"></iframe>';
 
 //remplit l'infobox
     document.getElementById('info').innerHTML = info;
