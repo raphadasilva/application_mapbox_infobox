@@ -1,0 +1,83 @@
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+<style>
+.highcharts-tooltip span {
+    height:auto;
+    width:70px;
+    white-space:normal !important; // add this line...
+}
+
+</style>
+<div id="container" style="width: 180px; height: 280px; margin-left:-18;"></div>
+<script>
+$(document).ready(function () {
+    	$('#container').highcharts({
+        	chart: {
+            	type: 'column'
+        	},
+        	title: {
+            	text: 'Mun. 2008'
+        	},
+        	subtitle: {
+            	text: 'Source: data.gouv.fr'
+        	},
+        	xAxis: {
+            	categories: [
+                	'PS',
+                	'GM',
+                	'Divers'
+            	]
+        	},
+        	yAxis: {
+            	min: 0,
+            	title: {
+                	text: 'Voix (%)'
+            	}
+        	},
+        	tooltip: {
+            	headerFormat: '<span style="font-size:16px; width:75px;">{point.key}</span><table>',
+            	pointFormat: '<tr><td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
+            	shared: true,
+            	useHTML: true
+        	},
+        	plotOptions: {
+            	column: {
+                	pointPadding: 0.2,
+                	borderWidth: 0
+            	}
+        	},
+        	series: [{
+            	showInLegend: false,
+            	name:'Voix',
+            	data: [{y:50.3,color:'#fc83b4'}, {y:24.9,color:'#4176e8'},{y:24.6,color:'#82d1ff'}],
+            	dataLabels: {
+                    enabled: true,
+                    rotation: -90,
+                    color: '#FFFFFF',
+                    align: 'right',
+                    x: 4,
+                    y: 5,
+                    style: {
+                        fontSize: '11px',
+                        fontFamily: 'Verdana, sans-serif',
+                        textShadow: '0 0 3px black'
+                    }}
+    
+        	}]
+    	});
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
