@@ -1,0 +1,82 @@
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+<style>
+.highcharts-tooltip span {
+    height:auto;
+    width:80px;
+    white-space:normal !important; // add this line...
+}
+
+</style>
+<div id="container" style="width: 180px; height: 280px; margin-left:-18;"></div>
+<script>
+$(document).ready(function () {
+    	$('#container').highcharts({
+        	chart: {
+            	type: 'column'
+        	},
+        	title: {
+            	text: 'Mun. 2008'
+        	},
+        	subtitle: {
+            	text: 'Source: data.gouv.fr'
+        	},
+        	xAxis: {
+            	categories: [
+                	'B. Michel',
+                	'B. Munch'
+            	]
+        	},
+        	yAxis: {
+            	min: 0,
+            	title: {
+                	text: 'Voix (%)'
+            	}
+        	},
+        	tooltip: {
+            	headerFormat: '<span style="font-size:16px; width:75px;">{point.key}</span><table>',
+            	pointFormat: '<tr><td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
+            	shared: true,
+            	useHTML: true
+        	},
+        	plotOptions: {
+            	column: {
+                	pointPadding: 0.2,
+                	borderWidth: 0
+            	}
+        	},
+        	series: [{
+            	showInLegend: false,
+            	name:'Voix',
+            	data: [{y:93.4,color:'#82d1ff'}, {y:91.4,color:'#82d1ff'}],
+            	dataLabels: {
+                    enabled: true,
+                    rotation: -90,
+                    color: '#FFFFFF',
+                    align: 'right',
+                    x: 4,
+                    y: 10,
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif',
+                        textShadow: '0 0 3px black'
+                    }}
+    
+        	}]
+    	});
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
